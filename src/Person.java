@@ -4,7 +4,7 @@ public class Person {
     private String name;
     private String surname;
     private int age;
-    int countWordSurname;
+    private int countWordSurname;
 
     public Person(String name, String surname, int age) {
         this.name = name;

@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 public class PersonNameAgeSizeComparator implements Comparator<Person> {
-    int wordSurname = 0;
+    private int wordSurname = 0;
 
     public PersonNameAgeSizeComparator() {
     }
