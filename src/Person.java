@@ -1,10 +1,10 @@
 import java.util.Comparator;
 
 public class Person {
-        private String name;
-        private String surname;
-        private int age;
-        int countWordSurname;
+    private String name;
+    private String surname;
+    private int age;
+    int countWordSurname;
 
     public Person(String name, String surname, int age) {
         this.name = name;
@@ -12,6 +12,7 @@ public class Person {
         this.surname = surname;
         countWordSurname = surname.split(" +").length;
     }
+
     public int getWordCountSurname() {
         return countWordSurname;
     }
@@ -42,6 +43,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return name + " " + surname + " " + age;
+        return name + " " + surname + " возраст " + age;
     }
 }

@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 public class PersonNameAgeSizeComparator implements Comparator<Person> {
-    int wordSurname;
+    int wordSurname = 0;
 
     public PersonNameAgeSizeComparator() {
     }
@@ -13,14 +13,14 @@ public class PersonNameAgeSizeComparator implements Comparator<Person> {
     @Override
     public int compare(Person o1, Person o2) {
         // если в фамилии не меньше слов чем в параметре компаратора сравниваем по возрасту
-        if (o1.getWordCountSurname() >= wordSurname && o2.getWordCountSurname() >= wordSurname) {
+        if (wordSurname != 0 && o1.getWordCountSurname() >= wordSurname && o2.getWordCountSurname() >= wordSurname) {
             return Integer.compare(o1.getAge(), o2.getAge());
-        } else //  проверка на длину фамилии
-            if (o1.getSurname().length() > o2.getSurname().length()) {
+        } else //  если выше условие ложь, проверка у кого длиннее фамилия
+            if (o1.getWordCountSurname() > o2.getWordCountSurname()) {
                 return 1;
-            } else if (o1.getSurname().length() < o2.getSurname().length()) {
+            } else if (o1.getWordCountSurname() < o2.getWordCountSurname()) {
                 return -1;
-            } else // если и имя и фамилия одинаковой длины, сравниваем по возрасту
+            } else // если выше ложь - возвращаем сравнение по возрасту
                 return Integer.compare(o1.getAge(), o2.getAge());
     }
 }
