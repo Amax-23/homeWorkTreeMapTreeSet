@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +28,16 @@ public class Main {
         comparePersonPrintLn(p7, p8);
         comparePersonPrintLn(p1, p5);
         comparePersonPrintLn(p6, p3);
+        Predicate<Person> personPredicate = person -> {
+            if (person.getAge() < 18) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        System.out.println("\nДомашнее задание по теме «Лямбда-выражения и функциональные интерфейсы»");
+        set.removeIf(personPredicate);
+        System.out.println("Содержание списка после удаления всех моложе 18 лет:\n" + set);
     }
 
     public static void comparePersonPrintLn(Person one, Person thue) {
